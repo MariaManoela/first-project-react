@@ -58,14 +58,13 @@ export default {
         if(movieId) {
             switch(type) {
                 case 'movie':
-                    info == await basicFetch(`/movie/${movieId}?api_key=${API_KEY}&language=pt-BR`);
+                    info = await basicFetch(`/movie/${movieId}?api_key=${API_KEY}&language=pt-BR`);
                 break;
                 case 'tv':
-                    info == await basicFetch(`/tv/${movieId}?api_key=${API_KEY}&language=pt-BR`);
+                    info = await basicFetch(`/tv/${movieId}?api_key=${API_KEY}&language=pt-BR`);
                 break;
             }
         }
         return info;
     }
-
 }
