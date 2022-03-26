@@ -11,8 +11,16 @@ export default() => {
 
   useEffect(() => {
     const loadAll = async () => {
+      //lista total
       let list = await Tmdb.getHomeList();
       setMovieList(list);
+
+      //featured
+      let originals = list.filter(i => i.slug === 'originals');
+      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1)); 
+      let chosen = originals[0].items.results[randomChosen];
+
+      console.log(chosen);
     }
     loadAll();
   }, []);
